@@ -118,7 +118,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           <div className="max-h-[300px] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Reviews</h2>
             <div className="grid gap-6">
-              
             </div>
             <div className="mt-10 flex-col flex gap-2">
               <Label>Write a review</Label>
