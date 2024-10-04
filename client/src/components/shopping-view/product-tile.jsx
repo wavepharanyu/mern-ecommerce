@@ -18,11 +18,11 @@ function ShoppingProductTile({
             className="w-full h-[300px] object-cover rounded-t-lg"
           />
           {product?.totalStock === 0 ? (
-            <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            <Badge className="absolute top-2 left-2 text-lg bg-red-500 hover:bg-red-600">
               Out Of Stock
             </Badge>
           ) : product?.totalStock < 10 ? (
-            <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            <Badge className="absolute top-2 left-2 bg-red-500 text-lg hover:bg-red-600">
               {`Only ${product?.totalStock} items left`}
             </Badge>
           ) : product?.salePrice > 0 ? (

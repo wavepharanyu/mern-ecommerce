@@ -128,7 +128,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                 placeholder="Write a review..."
               />
               <Button
-                onClick={handleAddReview}
+                //onClick={handleAddReview}
                 disabled={reviewMsg.trim() === ""}
               >
                 Submit

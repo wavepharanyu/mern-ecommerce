@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import CommonForm from "../common/form";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
@@ -20,13 +21,14 @@ const initialAddressFormData = {
   notes: "",
 };
 
-const Address = () => {
+function Address({ setCurrentSelectedAddress, selectedId }) {
   const [formData, setFormData] = useState(initialAddressFormData);
   const [currentEditedId, setCurrentEditedId] = useState(null);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { addressList } = useSelector((state) => state.shopAddress);
   const { toast } = useToast();
+
   function handleManageAddress(event) {
     event.preventDefault();
 
@@ -86,15 +88,15 @@ const Address = () => {
     });
   }
 
-  function handleEditAddress(getCurrentAddress) {
-    setCurrentEditedId(getCurrentAddress?._id);
+  function handleEditAddress(getCuurentAddress) {
+    setCurrentEditedId(getCuurentAddress?._id);
     setFormData({
       ...formData,
-      address: getCurrentAddress?.address,
-      city: getCurrentAddress?.city,
-      phone: getCurrentAddress?.phone,
-      pincode: getCurrentAddress?.pincode,
-      notes: getCurrentAddress?.notes,
+      address: getCuurentAddress?.address,
+      city: getCuurentAddress?.city,
+      phone: getCuurentAddress?.phone,
+      pincode: getCuurentAddress?.pincode,
+      notes: getCuurentAddress?.notes,
     });
   }
 
@@ -116,10 +118,11 @@ const Address = () => {
         {addressList && addressList.length > 0
           ? addressList.map((singleAddressItem) => (
               <AddressCard
+                selectedId={selectedId}
                 handleDeleteAddress={handleDeleteAddress}
                 addressInfo={singleAddressItem}
                 handleEditAddress={handleEditAddress}
-                currentEditedId={currentEditedId}
+                setCurrentSelectedAddress={setCurrentSelectedAddress}
               />
             ))
           : null}
@@ -143,4 +146,4 @@ const Address = () => {
   );
 }
 
-export default Address
+export default Address;
