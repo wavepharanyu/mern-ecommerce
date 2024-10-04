@@ -5,7 +5,7 @@ import AuthLogin from "./pages/auth/login";
 import AuthRegister from "./pages/auth/register";
 import AuthLayout from "./components/auth/layout";
 import AdminLayout from "./components/admin-view/layout";
-import AdminDashboard from "./pages/admin-view/dashboard";
+import AdminBanner from "./pages/admin-view/banners";
 import AdminProducts from "./pages/admin-view/products";
 import AdminOrders from "./pages/admin-view/orders";
 import AdminFeature from "./pages/admin-view/feature";
@@ -42,6 +42,15 @@ function App() {
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
         <Route
+          path="/"
+          element={
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+            ></CheckAuth>
+          }
+        />
+        <Route
           path="/auth"
           element={
             <CheckAuth isAuthenticated={isAuthenticated} user={user}>
@@ -61,7 +70,7 @@ function App() {
             </CheckAuth>
           }
         >
-          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="banners" element={<AdminBanner />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="features" element={<AdminFeature />} />
